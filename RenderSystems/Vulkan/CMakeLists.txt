@@ -34,8 +34,10 @@ include_directories(
 
 include_directories( ${Vulkan_INCLUDE_DIRS} )
 
+message(STATUS "========" ${Vulkan_LIBRARIES})
 ogre_add_library(RenderSystem_Vulkan ${OGRE_LIB_TYPE} ${HEADER_FILES} ${SOURCE_FILES})
-target_link_libraries(RenderSystem_Vulkan ${OGRE_NEXT}Main ${Vulkan_LIBRARIES})
+target_link_libraries(RenderSystem_Vulkan ${OGRE_NEXT}Main
+  Vulkan::Vulkan MachineIndependent OSDependent GenericCodeGen SPIRV SPIRV-Tools-opt SPIRV-Tools SPIRV-Tools-link)
 
 if( OGRE_VULKAN_WINDOW_XCB )
 	target_link_libraries(RenderSystem_Vulkan xcb-randr X11-xcb)

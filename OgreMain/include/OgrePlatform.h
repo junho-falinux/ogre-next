@@ -79,6 +79,7 @@ THE SOFTWARE.
  || defined(__ppc64__) \
  || defined(__arm64__) || defined(__aarch64__) || defined(_M_ARM64) \
  || defined(__mips64) || defined(__mips64_) \
+ || (defined(__riscv) && (__riscv_xlen == 64)) \
  || defined(__alpha__) || defined(__ia64__) || defined(__e2k__) || defined(__s390__) || defined(__s390x__)
 #   define OGRE_ARCH_TYPE OGRE_ARCHITECTURE_64
 #else
